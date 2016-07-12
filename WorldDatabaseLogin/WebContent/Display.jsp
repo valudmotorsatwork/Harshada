@@ -10,13 +10,37 @@
 <title>Kendo Jdbc</title>
 <link href="styles/kendo.common.min.css" rel="stylesheet"/>
 <link href="styles/kendo.default.min.css" rel="stylesheet"/>
-
 <script src="js/jquery.min.js"></script>
 <script src="js/kendo.all.min.js"></script>
+
 </head>
 <body>
-	<h3>Country Table</h3>
-	<%= session.getAttribute("userName") %>
+
+<%		
+		response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+	  	response.addHeader("Cache-Control", "post-check=0, pre-check=0");
+	  	response.setHeader("Pragma", "no-cache");
+	    response.setDateHeader("Expires", 0); 
+	    if(session!=null)
+	    {
+	    	if(session.getAttribute("userName")!=null){
+	    		out.print("Hello "+session.getAttribute("userName"));
+	    	}
+	    	else
+	    		response.sendRedirect("Login.jsp");
+	    }
+	    
+%>
+	<h3>Country Table
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="LogoutServlet">Logout</a></h3>
 	<div class="container">
 		<div class="row">
 			<div class="span12">

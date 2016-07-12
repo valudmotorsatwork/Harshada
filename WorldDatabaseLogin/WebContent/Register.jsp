@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="css/kendo.default.mobile.min.css" />
 <link rel="stylesheet" href="css/kendo.dataviz.default.min.css"/>
 <link rel="stylesheet" href="css/kendo.rtl.min.css"/>
+
+ 
 <style >
 div.right{
 width: 22%
@@ -45,14 +47,24 @@ background-color: light gray;
 </style>
 </head>
 <body>
+<%
+    	response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+  		response.addHeader("Cache-Control", "post-check=0, pre-check=0");
+  		response.setHeader("Pragma", "no-cache");
+    	response.setDateHeader("Expires", 0);
+    	if(session==null)
+    		response.sendRedirect("Login.jsp");
+%>
 <form action="RegisterController" method="post">
 <div id="example" align="center">
 <div class="right"></div>
 <div class="absolute" align="center">
 <br/>
+
 <% if ( session.getAttribute( "ExistUser" ) != null ) { %>
 <%=session.getAttribute( "ExistUser" )%>
 <% } %>
+
 <div id="login.title" class="demo-section k content" align="center"><h2 class="title">SignUp</h2>
 <table>
 <tr></tr>

@@ -12,6 +12,7 @@
     <script src="resources/js/kendo.web.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
    
+ 
 <style>
     div.right{
        width: 22%
@@ -46,8 +47,18 @@ div.login{
 </head> 
     
 <body>
+<%
+    	response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+  		response.addHeader("Cache-Control", "post-check=0, pre-check=0");
+  		response.setHeader("Pragma", "no-cache");
+    	response.setDateHeader("Expires", 0);
+    	if(session==null)
+    	response.sendRedirect("Login.jsp");
+	%>
 <div class="absolute" align="center">
 <form method="post" action="LoginServlet">
+   
+   
 <div class="login">
 <h3>Login Page</h3>
 <% if ( session.getAttribute( "ErrorMsg" ) != null ) { %>
@@ -56,6 +67,14 @@ div.login{
 
 <% if ( session.getAttribute( "NewUser" ) != null ) { %>
 <%=session.getAttribute( "NewUser" )%>
+<% } %>
+
+<% if ( session.getAttribute( "LogoutMsg" ) != null ) { %>
+<%=session.getAttribute( "LogoutMsg" )%>
+<% } %>
+
+<% if ( session.getAttribute( "Error" ) != null ) { %>
+<%=session.getAttribute( "Error" )%>
 <% } %>
 <table>
 <tr><td>UserName::</td>  <td> <kendo:maskedTextBox name="userName"></kendo:maskedTextBox><br></td></tr>
